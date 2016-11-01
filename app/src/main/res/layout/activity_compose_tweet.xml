@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_compose_tweet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.codepath.apps.mysimpletweets.activities.ComposeTweetActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/ic_launcher"
+        android:id="@+id/ivProfileImage" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        tools:text="This is an example tweet. This is what it would look like."
+        android:hint="@string/new_tweet_hint"
+        android:ems="10"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ivProfileImage"
+        android:id="@+id/etNewTweet" />
+
+    <Button
+        android:text="@string/tweet"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/etNewTweet"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="71dp"
+        android:id="@+id/buTweet"
+        android:background="@color/blue"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:onClick="onSubmit"
+        android:layout_height="30dp" />
+
+    <TextView
+        tools:text="140"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/buTweet"
+        android:id="@+id/tvCharCount"
+        android:layout_alignBottom="@+id/buTweet"
+        android:layout_alignTop="@+id/buTweet"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:paddingRight="5dp" />
+</RelativeLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            app:srcCompat="@drawable/ic_launcher"
+            android:id="@+id/ivProfileImage"
+            android:paddingRight="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvName"
+            tools:text="Kevin Chang"
+            android:textSize="10sp"
+            android:layout_alignTop="@+id/ivProfileImage"
+            android:layout_alignLeft="@+id/tvBody"
+            android:layout_alignStart="@+id/tvBody"
+            android:layout_marginTop="5dp"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvUsername"
+            tools:text="\u0040swifttarrow"
+            android:textSize="10sp"
+            android:layout_alignTop="@+id/ivProfileImage"
+            android:layout_toRightOf="@+id/tvName"
+            android:layout_margin="5dp"
+            android:paddingLeft="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvCreatedAt"
+            tools:text="16 Jun"
+            android:textSize="10sp"
+            android:layout_alignTop="@+id/ivProfileImage"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:paddingLeft="5dp" />
+
+        <com.codepath.apps.mysimpletweets.views.LinkifiedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvBody"
+            android:layout_toRightOf="@+id/ivProfileImage"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tvUsername"
+            tools:text="Hello World! This is an example body text for us to see how much space a tweet with 140 characters would take up. This takes exactly 140 ch."
+            android:layout_margin="5dp"
+            android:textSize="12sp"
+            android:linksClickable="true"
+            android:autoLink="web"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="312dp"
+            android:id="@+id/etReply"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/ivProfileImage"
+            android:layout_alignStart="@+id/ivProfileImage"
+            android:layout_toLeftOf="@+id/btnReply"
+            android:layout_toStartOf="@+id/btnReply" />
+
+        <Button
+            android:text="@string/reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/etReply"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/btnReply"
+            android:background="@color/blue"
+            android:textColor="@android:color/white"
+            android:onClick="onSubmit"/>
+    </RelativeLayout>
+
+
+</LinearLayout>
