@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -12,14 +13,26 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.codepath.apps.mysimpletweets.R;
+import com.codepath.apps.mysimpletweets.TwitterApplication;
+import com.codepath.apps.mysimpletweets.TwitterClient;
+import com.codepath.apps.mysimpletweets.models.Tweet;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONObject;
+import org.parceler.Parcels;
+
+import cz.msebera.android.httpclient.Header;
 
 public class ComposeTweetActivity extends AppCompatActivity {
     private static final int CHARACTER_MAX = 140;
     public static int REQUEST_CODE = 20;
+    private TwitterClient client;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose_tweet);
+
+        client = TwitterApplication.getRestClient();
 
         Intent intent = getIntent();
         final TextView tvCharCount = (TextView) findViewById(R.id.tvCharCount);
@@ -44,13 +57,30 @@ public class ComposeTweetActivity extends AppCompatActivity {
 
     public void onSubmit(View v) {
         EditText etNewTweet = (EditText) findViewById(R.id.etNewTweet);
-        // Prepare data intent
-        Intent data = new Intent();
-        // Pass relevant data back as a result
-        data.putExtra("tweet", etNewTweet.getText().toString());
-        data.putExtra("code", REQUEST_CODE); // ints work too
-        // Activity finished ok, return the data
-        setResult(RESULT_OK, data); // set result code and bundle data for response
-        finish(); // closes the activity, pass data to parent
+        String tweet =  etNewTweet.getText().toString();
+        postTweet(tweet);
     }
+
+    public void postTweet(String tweet){
+        client.postTweet(new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject json) {
+                Log.d("DEBUG", json.toString());
+
+                Intent data = new Intent();
+                data.putExtra("tweet", Parcels.wrap(Tweet.fromJSON(json)));
+                data.putExtra("code", REQUEST_CODE);
+
+                setResult(RESULT_OK, data); // set result code and bundle data for response
+                finish();
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("DEBUG", errorResponse.toString());
+            }
+        }, tweet);
+    }
+
+
 }

@@ -43,10 +43,16 @@
             android:name=".activities.TimelineActivity"
             android:label="@string/title_activity_timeline"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.ComposeTweetActivity"
+        <activity
+            android:name=".activities.ComposeTweetActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.TweetDetailActivity"
+        <activity
+            android:name=".activities.TweetDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

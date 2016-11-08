@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.codepath.apps.mysimpletweets.activities.ProfileActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <include layout="@layout/toolbar"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlUserHeader"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.codepath.apps.mysimpletweets.activities.ProfileActivity"
+        android:layout_below="@+id/appBar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@android:drawable/screen_background_light_transparent"
+            tools:src="@drawable/ic_launcher"/>
+        <TextView
+            android:id="@+id/tvFullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ivProfileImage"
+            android:textSize="20sp"
+            tools:text="Kevin"/>
+
+        <TextView
+            android:id="@+id/tvTagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="What be happenin'"
+            android:textSize="12sp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/ivProfileImage"
+            android:layout_toEndOf="@+id/ivProfileImage"
+            android:paddingTop="10dp" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/llCounts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlUserHeader"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tvFollowers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="5 Followers"/>
+        <TextView
+            android:id="@+id/tvFollowing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            tools:text="5 Following"/>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/flContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llCounts">
+    </FrameLayout>
+
+
+</RelativeLayout>

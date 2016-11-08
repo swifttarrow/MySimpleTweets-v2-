@@ -9,5 +9,6 @@
     <string name="reply">Reply</string>
     <string name="tweet">Tweet</string>
     <string name="empty_tweet_error">You haven\'t tweeted anything!</string>
-
+    <string name="profile">Profile</string>
+    <string name="title_activity_profile">Profile</string>
 </resources>
